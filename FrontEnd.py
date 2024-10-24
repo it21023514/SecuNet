@@ -267,31 +267,30 @@ def main():
             st.write(f"Original Model Accuracy: {original_model_accuracy}")
 
         if st.button("Apply PGD Attack"):
-            if hasattr(st.session_state, 'loaded_model'):
+            if 'loaded_model' in st.session_state and 'X_test_scaled' in st.session_state and 'y_test' in st.session_state:
                 loaded_model = st.session_state.loaded_model
                 X_test_scaled = st.session_state.X_test_scaled
                 y_test = st.session_state.y_test
 
-                #Apply PGD Attack
-            X_test_pgd, y_test_pgd = pgd_attac(loaded_model, X_test_scaled, y_test)
+                # Apply PGD Attack
+                X_test_pgd, y_test_pgd = pgd_attac(loaded_model, X_test_scaled, y_test)
 
-            # Evaluate the perturbed model
-            perturbed_model_accuracy = loaded_model.evaluate(X_test_pgd, y_test_pgd)[1]
-            #st.write(f"Perturbed Model Accuracy: {perturbed_model_accuracy}")
+                # Evaluate the perturbed model
+                perturbed_model_accuracy = loaded_model.evaluate(X_test_pgd, y_test_pgd)[1]
 
-            # Display accuracy using a gauge visualization
-        
-            st.write(f"Original Model Accuracy:{round(original_model_accuracy, 2)}")
-            st.progress(original_model_accuracy)
+                st.write(f"Original Model Accuracy: {round(original_model_accuracy, 2)}")
+                st.progress(original_model_accuracy)
 
-            st.write(f"Perturbed Model Accuracy: {round(perturbed_model_accuracy, 2)}")
-            st.progress(perturbed_model_accuracy)
+                st.write(f"Perturbed Model Accuracy: {round(perturbed_model_accuracy, 2)}")
+                st.progress(perturbed_model_accuracy)
 
-            st.title("Suggested Defenses")
-
-            with st.container():
-                st.subheader("Stochastic Distillation")
-                st.write("It involves training a model on a mixture of clean and adversarial examples, using a stochastic process to generate perturbations. This approach aims to reduce the model's sensitivity to small input changes, ultimately bolstering its resilience against adversarial attacks like PGD.")
+                st.title("Suggested Defenses")
+                
+                with st.container():
+                    st.subheader("Stochastic Distillation")
+                    st.write("It involves training a model on a mixture of clean and adversarial examples...")
+            else:
+                st.error("Model or test data not loaded. Please upload a model and dataset.")
 
 
 #If Tabular Boundary attack
