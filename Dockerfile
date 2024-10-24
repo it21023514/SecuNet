@@ -33,5 +33,5 @@ COPY . .
 # Expose the default port for Streamlit
 EXPOSE 8501
 
-# Run the Streamlit application
-CMD ["streamlit", "run", "FrontEnd.py"]
+# Run the Streamlit application on port 80
+CMD ["streamlit", "run", "FrontEnd.py", "--server.port", "80"]
