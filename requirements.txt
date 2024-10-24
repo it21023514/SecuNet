@@ -136,7 +136,7 @@ streamlit
 tenacity
 tensorboard
 tensorboard-data-server
-tensorflow
+tensorflow==2.17.0
 tensorflow-estimator
 tensorflow-intel
 tensorflow-io-gcs-filesystem
