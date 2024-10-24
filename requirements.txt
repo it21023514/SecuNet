@@ -1,5 +1,5 @@
 absl-py
-altair
+altair<5
 anyio
 argon2-cffi
 argon2-cffi-bindings
