@@ -99,7 +99,7 @@ pillow
 platformdirs
 prometheus-client
 prompt-toolkit
-protobuf~=3.19.0
+protobuf==3.19.0
 psutil
 pure-eval
 pyarrow
