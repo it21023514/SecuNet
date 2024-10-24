@@ -85,7 +85,7 @@ nest-asyncio
 nltk
 notebook
 notebook_shim
-numpy
+numpy==1.26.4
 oauthlib
 opt-einsum
 optree
