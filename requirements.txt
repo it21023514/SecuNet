@@ -66,7 +66,7 @@ jupyter_server_terminals
 jupyterlab
 jupyterlab-pygments
 jupyterlab_server
-keras
+keras==3.6.0
 kiwisolver
 libclang
 Markdown
@@ -99,7 +99,7 @@ pillow
 platformdirs
 prometheus-client
 prompt-toolkit
-protobuf~=3.19.0
+protobuf==3.20.3
 psutil
 pure-eval
 pyarrow
@@ -136,7 +136,7 @@ streamlit
 tenacity
 tensorboard
 tensorboard-data-server
-tensorflow
+tensorflow==2.17.0
 tensorflow-estimator
 tensorflow-intel
 tensorflow-io-gcs-filesystem
